@@ -1,7 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 import { HelperBase } from "./helperBase";
 
-export class LoginPage extends HelperBase {
+export class CustomerAccountPage extends HelperBase {
 
     constructor(page: Page){
         super(page)
@@ -14,5 +14,10 @@ export class LoginPage extends HelperBase {
         await loginForm.locator('#send2').click()
     }
 
-    
+    async signUp() {
+        await this.page.locator('[class="action create primary"]').click()       
+
+    }
+
+
 }

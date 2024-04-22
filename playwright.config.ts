@@ -20,6 +20,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     actionTimeout: 20000,
     navigationTimeout: 25000,
+    viewport: { width: 1920, height: 1080 },
     video: {
       mode: 'off',
       size: {width: 1920, height: 1080}
