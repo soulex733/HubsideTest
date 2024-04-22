@@ -22,18 +22,19 @@ export class SignUpPage extends HelperBase {
         await this.page.locator('#lastname').fill(lastname)
         await this.page.locator('#telephone').fill(phoneNumber)
         await this.page.locator('#street_1').fill(address)
-        await this.page.keyboard.press(" ");        
-        await this.page.locator('[class="pac-item"]').click()
-        
+        await this.page.keyboard.press(" ");
+        await this.page.waitForTimeout(1000)
+        await this.page.keyboard.press('Backspace')
+        await this.page.locator('[class="pac-item"]').click()        
         // await this.page.locator('#password').click()
         // await this.page.waitForSelector('#city', { state: 'visible' })
         // await this.page.waitForSelector('#zip', { state: 'visible' })
-        // await this.page.locator('#city').fill(city)
-        // await this.page.locator('#zip').fill(zip)        
-        // await this.page.locator('#email_address').fill(email)
-        // await this.page.locator('#password').fill(password)
-        // await this.page.locator('#password-confirmation').fill(password)
-        // await this.page.locator('[class="action submit primary"]').click()
+        await this.page.locator('#city').fill(city)
+        await this.page.locator('#zip').fill(zip)        
+        await this.page.locator('#email_address').fill(email)
+        await this.page.locator('#password').fill(password)
+        await this.page.locator('#password-confirmation').fill(password)
+        await this.page.locator('[class="action submit primary"]').click()
 
 
 
