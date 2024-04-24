@@ -17,7 +17,7 @@ export class NavigationPage extends HelperBase {
      } 
     
     async customerAccountPage(){
-        await this.page.getByRole('link', { name: 'Profil' }).click()        
+        await this.page.locator('[class="page-wrapper"]').getByRole('link', { name: 'Profil' }).click()        
      }
 
     async loginAsCustomer() {
