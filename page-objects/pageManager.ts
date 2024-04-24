@@ -4,6 +4,7 @@ import { StoreSelectPage } from "./storeSelectPage";
 import { HomePage } from "./homePage";
 import { CustomerAccountPage} from "./customerAccountPage";
 import { SignUpPage } from "./signUpPage";
+import { CartPage } from "./cartPage";
 
 export class PageManager {   
 
@@ -13,6 +14,7 @@ export class PageManager {
     private readonly customerAccountPage: CustomerAccountPage
     private readonly navigationPage: NavigationPage
     private readonly signUpPage: SignUpPage
+    private readonly cartPage: CartPage
 
     constructor(page:Page){ 
         this.page = page
@@ -21,9 +23,10 @@ export class PageManager {
         this.homePage = new HomePage(this.page)
         this.customerAccountPage = new CustomerAccountPage (this.page)
         this.signUpPage = new SignUpPage (this.page)
+        this.cartPage = new CartPage(this.page)
     }
 
-    navigateTo(){
+    route(){
         return this.navigationPage
     }
     
@@ -41,6 +44,10 @@ export class PageManager {
 
     onSignUpPage() {
         return this.signUpPage
+    }
+
+    onCartPage() {
+        return this.cartPage
     }
 
 }
