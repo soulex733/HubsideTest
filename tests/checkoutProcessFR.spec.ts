@@ -46,15 +46,13 @@ test.describe('Checkout Process test suite', () => {
             await page.locator('[for="stripe_payments"]').click()
             await page.waitForTimeout(1000)
             await page.waitForLoadState('domcontentloaded') 
-            //await page.locator('#Field-numberInput').fill('4111111111111111')
- 
-            //Need to work with Iframe Here!
+                        
+            // FRAME NAME IS RANDOM EVERY TIME, NEED TO MATCH PARTIAL TEXT NAME
+            const iframe = page.frameLocator('[name*="__privateStripeFrame"]')
             
-
-
-            await page.locator('.p-CardNumberInput').fill('4111111111111111')
-            await page.locator('#Field-expiryInput').fill('1025')
-            await page.locator('#Field-cvcInput').fill('111')
+            await iframe.locator('.p-CardNumberInput').fill('4111111111111111')
+            await iframe.locator('#Field-expiryInput').fill('1025')
+            await iframe.locator('#Field-cvcInput').fill('111')
         })
 
     })
