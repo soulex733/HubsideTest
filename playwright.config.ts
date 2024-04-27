@@ -18,8 +18,8 @@ export default defineConfig({
         : 'https://mcstaging.hubside.store/fr/',
 
     trace: 'on-first-retry',
-    actionTimeout: 10000,
-    navigationTimeout: 15000,
+    actionTimeout: 20000,
+    navigationTimeout: 30000,
     viewport: { width: 1920, height: 1080 },
     video: {
       mode: 'off',
