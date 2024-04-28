@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+//require('dotenv).config();
+
 export default defineConfig({
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -13,6 +15,8 @@ export default defineConfig({
 ],
   
   use: {
+    //Using process.env.DEV creates the ability to choose the enviroment-
+    //while running the test from command line by typing DEV=1 before test run command
     baseURL: process.env.DEV === '1' ? 'https://mcstaging.hubside.store/fr/'
         : process.env.STAGING === '2' ? 'https://mcstaging.hubside.store/fr/'
         : 'https://mcstaging.hubside.store/fr/',

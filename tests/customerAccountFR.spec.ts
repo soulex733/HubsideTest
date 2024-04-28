@@ -3,7 +3,9 @@ import { PageManager } from '../page-objects/pageManager'
 import { faker } from '@faker-js/faker'
 
 test.beforeEach(async({page}) => {
+    const pm = new PageManager(page)
     await page.goto('/')
+    await pm.route().acceptCookies()
 
 })
 
