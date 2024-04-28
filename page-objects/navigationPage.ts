@@ -31,7 +31,13 @@ export class NavigationPage extends HelperBase {
         await this.page.locator('#ui-id-3').click()
         await this.page.locator('#ui-id-9').click()
         await this.page.locator('[class="products wrapper grid products-grid"]').getByRole('listitem').first().locator('[class="action tocart primary"]').click()
-     }     
+     }
+     
+     async addProductToCartFromPDP() {
+        await this.page.goto('https://mcstaging.hubside.store/fr/iphone-14-128go-mauve.html')
+        await this.page.waitForTimeout(1000)
+        await this.page.locator('[class="action primary small tocart tocart-sidebar"]').click()
+     }   
 
     async goToCart() {
         await this.page.locator('[class="minicart-wrapper"]').click()

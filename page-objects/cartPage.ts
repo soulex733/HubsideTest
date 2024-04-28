@@ -9,8 +9,6 @@ export class CartPage extends HelperBase {
 
     async goToCheckout() {
         await this.page.locator('[class="action pagebuilder-mobile-hidden primary checkout"]').click()
-               
-        
     }
 
 }
