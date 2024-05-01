@@ -28,10 +28,23 @@ export default defineConfig({
     video: {
       mode: 'off',
       size: {width: 1920, height: 1080}
-    }
+    },
+    // extraHTTPHeaders: {
+    //   'Authorization': `Token ${process.env.ACCESS_TOKEN}`
+    // }
   },
 
 projects: [
+    {
+      name: 'setup', testMatch: 'auth.setup.ts'
+    },
+
+    {
+      name: 'apiTest',
+      use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json'},
+      dependencies: ['setup'] 
+    },  
+    
     {
       name: 'dev',
       use: { ...devices['Desktop Chrome'], 
@@ -56,13 +69,15 @@ projects: [
         browserName: 'firefox'
       }
     },
-    {
-      name: 'mobile',
-      testMatch: 'testMobile.spec.ts',
-      use:{
-        ...devices['iPhone 13 Pro']
-      } 
-    },
+
+    
+    // {
+    //   name: 'mobile',
+    //   testMatch: 'testMobile.spec.ts',
+    //   use:{
+    //     ...devices['iPhone 13 Pro']
+    //   } 
+    // },
 
     
 
