@@ -24,6 +24,7 @@ export class SignUpPage extends HelperBase {
         await this.page.locator('#lastname').fill(lastname)
         await this.page.locator('#telephone').fill(process.env.PHONE_NUMBER!)
         await this.page.locator('#street_1').fill(address)
+        // Waiting for google address autocomplete to show up by pressing space button and then deleting the space
         await this.page.waitForTimeout(500)
         await this.page.keyboard.press(" ");
         await this.page.waitForTimeout(2000)
