@@ -25,7 +25,7 @@ export class SignUpPage extends HelperBase {
         await this.page.locator('#telephone').fill(phoneNumber)
         await this.page.locator('#street_1').fill(address)
         await this.page.keyboard.press(" ");
-        await this.page.waitForTimeout(1000)
+        await this.page.waitForTimeout(2000)
         await this.page.keyboard.press('Backspace')
         await this.page.locator('[class="pac-item"]').click()    
         await this.page.locator('#city').fill(city)

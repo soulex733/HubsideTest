@@ -40,9 +40,10 @@ test.describe('Checkout Process test suite', () => {
         await test.step('Step 5 - Complete order', async () => {
             await pm.onCheckoutPage().homeDelivery()
             await pm.onCheckoutPage().creditCardPayment()
-                        
-            //await page.waitForTimeout(5000)            
-            //await expect(page.locator('[class="checkout-success"]')).toBeVisible()          
+            
+            await expect(page).toHaveURL(/success/)                        
+            await page.waitForTimeout(2000)            
+            await expect(page.locator('[class="checkout-success"]')).toBeVisible()          
         })
 
     })

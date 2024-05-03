@@ -13,6 +13,7 @@ test.describe('Customer Account test suite', () => {
 
     test('Create new account', async ({page}) => {
         const pm = new PageManager(page)
+
         await pm.onStoreSelectPage().selectFrStore()
         await pm.route().customerAccountPage()         
         await page.waitForLoadState('domcontentloaded')  
@@ -29,14 +30,12 @@ test.describe('Customer Account test suite', () => {
         await expect(page).toHaveURL(/index/)
         await page.locator('.account-nav').getByRole('listitem').last().click()
     })
-
+    
     test('Login with non-existing customer', async ({page}) => {
         const pm = new PageManager(page)
-
-        // const randomFullName = faker.person.fullName()
-        // const randomEmail = `${randomFullName.replace(' ', '')}${faker.number.int(1000)}@test.com`
         const randomEmail = faker.internet.email()
         const randomPassword = faker.internet.password()
+
         await pm.onStoreSelectPage().selectFrStore()
         await pm.route().customerAccountPage()
         await pm.onCustomerAccountPage().signIn(randomEmail, randomPassword) 
@@ -44,19 +43,21 @@ test.describe('Customer Account test suite', () => {
         await expect(page.locator('[class="message-error error message"]')).toBeVisible()
     })
 
-    test('Check error messages with incorrect login data', async ({page}) => {
-        const pm = new PageManager(page)
+    // DOESNT WORK WITH CAPTCHA
+    // test('Check error messages with incorrect login data', async ({page}) => {
+    //     const pm = new PageManager(page)
        
-        await pm.onStoreSelectPage().selectFrStore()
-        await pm.route().customerAccountPage()
-        await pm.onCustomerAccountPage().signIn('asd@', '')            
-        await expect(page.locator('#email-error')).toHaveText('Veuillez entrer une adresse email valide (Ex : johndoe@domain.com).')
-        await expect(page.locator('#pass-error')).toBeVisible()
-        await page.locator('[class="page-wrapper"]').locator('#pass').fill('123qwe')
-        await page.locator('.js-show-password').click()
+    //     await pm.onStoreSelectPage().selectFrStore()
+    //     await pm.route().customerAccountPage()
+    //     await pm.onCustomerAccountPage().signIn('asd@asd', '')        
+    //     await page.waitForTimeout(1000)            
+    //     await expect(page.locator('#email-error')).toHaveText('Veuillez entrer une adresse email valide (Ex : johndoe@domain.com).')
+    //     await expect(page.locator('#pass-error')).toBeVisible()
+    //     await page.locator('[class="page-wrapper"]').locator('#pass').fill('123qwe')
+    //     await page.locator('.js-show-password').click()
 
 
-    })
+    // })
 
     test('Check hide password', async ({page}) => {
         const pm = new PageManager(page)

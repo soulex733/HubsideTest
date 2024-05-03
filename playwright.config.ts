@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-//require('dotenv).config();
+require('dotenv').config();
 
 export default defineConfig({
   /* Run tests in files in parallel */

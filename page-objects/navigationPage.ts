@@ -24,7 +24,7 @@ export class NavigationPage extends HelperBase {
         const pm = new PageManager (this.page)
         await pm.onStoreSelectPage().selectFrStore()
         await pm.route().customerAccountPage()       
-        await pm.onCustomerAccountPage().signIn('mytvo+1@smile.fr', 'Test12345')        
+        await pm.onCustomerAccountPage().signIn(process.env.EMAIL!, process.env.PASSWORD!)        
      }
 
     async addProductToCart() {
