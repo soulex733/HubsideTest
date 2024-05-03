@@ -15,15 +15,16 @@ export class SignUpPage extends HelperBase {
         const lastname = faker.person.lastName()
         const email = `${firstname+lastname.replace(' ', '')}${faker.number.int(1000)}@test.com`
         const password = faker.internet.password();
-        const phoneNumber = "+33189480356"
+        //const phoneNumber = "+33189480356"
         const address = "110 bis Rue Jean-Pierre Timbaud"
         const city = "Paris"
         const zip = "75011"
 
         await this.page.locator('#firstname').fill(firstname)
         await this.page.locator('#lastname').fill(lastname)
-        await this.page.locator('#telephone').fill(phoneNumber)
+        await this.page.locator('#telephone').fill(process.env.PHONE_NUMBER!)
         await this.page.locator('#street_1').fill(address)
+        await this.page.waitForTimeout(500)
         await this.page.keyboard.press(" ");
         await this.page.waitForTimeout(2000)
         await this.page.keyboard.press('Backspace')
