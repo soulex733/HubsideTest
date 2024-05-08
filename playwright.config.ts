@@ -29,9 +29,9 @@ export default defineConfig({
       mode: 'off',
       size: {width: 1920, height: 1080}
     },
-    extraHTTPHeaders: {
-      'Authorization': `Token ${process.env.ACCESS_TOKEN}`
-    }
+    // extraHTTPHeaders: {
+    //   'Authorization': `Token ${process.env.ACCESS_TOKEN}`
+    // }
   },
   globalSetup: require.resolve('./global-setup.ts'),
   globalTeardown: require.resolve('./global-teardown.ts'),
