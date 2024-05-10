@@ -27,7 +27,7 @@ test.describe('Customer Account test suite', () => {
         const pm = new PageManager(page)
 
         await pm.route().loginAsCustomer()
-        //await expect(page).toHaveURL(/index/)
+        await expect(page).toHaveURL(/index/)
         await expect(page).toHaveScreenshot()
         //await page.locator('.account-nav').getByRole('listitem').last().click()
     })

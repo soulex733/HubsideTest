@@ -33,8 +33,8 @@ export default defineConfig({
     //   'Authorization': `Token ${process.env.ACCESS_TOKEN}`
     // }
   },
-  globalSetup: require.resolve('./global-setup.ts'),
-  globalTeardown: require.resolve('./global-teardown.ts'),
+  // globalSetup: require.resolve('./global-setup.ts'),
+  // globalTeardown: require.resolve('./global-teardown.ts'),
 
 projects: [
     {
@@ -92,9 +92,8 @@ projects: [
       use: {
         browserName: 'firefox'
       }
-    },
+    }
 
-    
     // {
     //   name: 'mobile',
     //   testMatch: 'testMobile.spec.ts',
@@ -102,6 +101,15 @@ projects: [
     //     ...devices['iPhone 13 Pro']
     //   } 
     // },
+  ],
+
+    // webServer: {
+    //   command: 'npm run start',
+    //   url: 'http://localhost: 4200/'
+    // },
+
+    
+    
 
     
 
@@ -124,6 +132,6 @@ projects: [
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  
 
 });

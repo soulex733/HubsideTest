@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "login-chrome": "npx playwright test -g \"Login with existing customer\" --project=chromium"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
